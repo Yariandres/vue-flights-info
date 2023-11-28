@@ -1,5 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import ShowFlights from './components/pages/ShowFlights.vue';
+</script>
 
 <template>
-  <div>hello wordls</div>
+  <ShowFlights />
 </template>
