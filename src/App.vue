@@ -3,5 +3,5 @@ import ShowFlights from './components/pages/ShowFlights.vue';
 </script>
 
 <template>
-  <ShowFlights />
+  <show-flights />
 </template>

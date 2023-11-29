@@ -4,7 +4,7 @@ const selected = ref<string[]>([]);
 </script>
 <template>
   <div class="input-group mt-32">
-    <div class="custom-filter">
+    <div class="custom-filter box-shadow-md">
       <label for="select" class="label">
         <span class="display-sm">Sort by</span>
       </label>
@@ -14,6 +14,5 @@ const selected = ref<string[]>([]);
         <option value="orig">Origin</option>
       </select>
     </div>
-    {{ selected }}
   </div>
 </template>
