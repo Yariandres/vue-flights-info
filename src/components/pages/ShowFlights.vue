@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import type { FlightsData } from '../../types';
-import AppFilter from '../AppFilter.vue';
+import BaseSelect from '../BaseSelect.vue';
 import FlightsList from '../FlightsList.vue';
 
 const flights = ref<FlightsData[]>([
@@ -127,17 +127,16 @@ const flights = ref<FlightsData[]>([
   },
 ]);
 
-const selected = ref<string>();
+const selected = ref<string>('');
 
 const filterFlights = computed(() => {
   return flights.value.filter((flight) => {
-    if (!selected.value) return flights.value;
-
     if (selected.value === 'origin') {
-      return flight.origin === 'LON';
-    }
-    if (selected.value === 'destination') {
+      return flight.origin === 'MAD';
+    } else if (selected.value === 'destination') {
       return flight.destination === 'MAD';
+    } else {
+      return flight;
     }
   });
 });
@@ -145,7 +144,7 @@ const filterFlights = computed(() => {
 <template>
   <main class="container">
     <section class="flex-col gap-16">
-      <app-filter />
+      <base-select v-model="selected" :label="'Sort by'" />
       <h1 class="text-ligth text-gray">
         Flight results from:
         <span class="text-dark">MAD</span> to:
