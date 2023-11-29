@@ -3,6 +3,10 @@ export type FlightsData = {
   destination: string;
   departureDate: string;
   returnDate: string;
-  price: number;
+  price: {
+    currency: string;
+    amount: number;
+  };
+  offerType: string;
   uuid: string;
 };
