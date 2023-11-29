@@ -81,6 +81,16 @@ body {
   gap: 16px;
 }
 
+.col-price {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.title {
+  font-size: 14px;
+}
+
 @media (min-width: 601px) {
   .col-times {
     flex-direction: row;
@@ -104,7 +114,16 @@ body {
   }
 }
 
+/* display */
+.d-block {
+  display: block;
+}
+
 /* margin */
+.mt-10 {
+  margin-top: 10px;
+}
+
 .mt-16 {
   margin-top: 16px;
 }
@@ -162,7 +181,6 @@ body {
   gap: 32px;
 }
 
-
 /* text */
 .text-gray {
   color: #5f5f5f;
@@ -198,6 +216,14 @@ body {
 
 .text-bold {
   font-weight: 700;
+}
+
+.text-ligth {
+  font-weight: 100;
+}
+
+.text-center {
+  text-align: center;
 }
 
 /* background-colors */
