@@ -1,4 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import type { FlightsData } from '../types';
+defineProps<{
+  flight: FlightsData;
+}>();
+</script>
 <template>
   <div
     class="bg-light p-block-16 p-inline-16 box-shadow-md border-radius-25"
@@ -6,25 +11,20 @@
   >
     <div class="col-times gap-10">
       <div class="col-left gap-10">
+        <p class="text-bold font-size-16">YYYY-MM-DD</p>
         <div class="flex-row gap-10">
-          <div aria-label="BHX 8:10AM - AGA 4:05PM">
-            <p class="text-gray font-size-12">BHX</p>
-            <time class="text-bold font-size-16" datetime="PT08H00M"
-              >08:00h</time
-            >
+          <div
+            :aria-label="`${flight.origin} - ${flight.destination} ${flight.duration}`"
+          >
+            <p class="text-gray font-size-12">{{ flight.origin }}</p>
           </div>
-          <span class="connector mt-16">---</span>
           <div aria-label="BHX 8:10AM - AGA 4:05PM">
             <p class="text-gray font-size-12">AGA</p>
-
-            <time class="text-bold font-size-16" datetime="PT06H55M"
-              >06:55h</time
-            >
           </div>
         </div>
         <hr />
         <div class="flex-row gap-13">
-          <div aria-label="Duration 09:45">
+          <div aria-label="Duration 09:45 Connection Nonstop">
             <p class="text-gray font-size-12">Duration</p>
             <p class="text-bold font-size-16">09:45</p>
           </div>
