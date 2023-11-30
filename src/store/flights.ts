@@ -27,5 +27,18 @@ export const useFlightsStore = defineStore('fligths-data', {
         this.isLoading = false;
       }
     },
+
+    filterFlights(selected: string) {
+      return this.flights.filter((flight) => {
+        if (selected === 'origin') {
+          return flight.origin === 'MAD';
+        } else if (selected === 'destination') {
+          return flight.destination === 'MAD';
+        } else {
+          return flight;
+        }
+      });
+    },
+    // ...
   },
 });

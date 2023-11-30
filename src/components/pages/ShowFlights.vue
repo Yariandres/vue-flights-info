@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 import BaseSelect from '../BaseSelect.vue';
 import FlightsList from '../FlightsList.vue';
 import { useFlightsStore } from '../../store/flights';
@@ -8,20 +8,8 @@ import { storeToRefs } from 'pinia';
 const store = useFlightsStore();
 store.getFlights();
 
-const { flights, isLoading } = storeToRefs(store);
+const { isLoading } = storeToRefs(store);
 const selected = ref<string>('');
-
-const filterFlights = computed(() => {
-  return flights.value.filter((flight) => {
-    if (selected.value === 'origin') {
-      return flight.origin === 'MAD';
-    } else if (selected.value === 'destination') {
-      return flight.destination === 'MAD';
-    } else {
-      return flight;
-    }
-  });
-});
 </script>
 <template>
   <main class="container">
@@ -35,7 +23,7 @@ const filterFlights = computed(() => {
       </h1>
       <div class="flex-col gap-10">
         <flights-list
-          v-for="flight in filterFlights"
+          v-for="flight in store.filterFlights(selected)"
           :key="flight.uuid"
           :flight="flight"
         />
